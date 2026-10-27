@@ -112,7 +112,7 @@
 --------------------------------------------------------------------------- */
 var CONTROLLER = {
   company: "IN THE NET di Gasperoni Robert",
-  address: "Strada di Paderna, 2 - Repubblica di San Marino",
+  address: "Strada di Paderna, 2 - 47899 FIORINA - Repubblica di San Marino",
   vat:     "SM05524",
   email:   "robert@inthenet.sm",
   web:     "https://www.inthenet.sm",
@@ -259,8 +259,8 @@ var T = {
 };
 
 var LABELS = {
-  it:{company:"Titolare",address:"Indirizzo",vat:"Identificativo fiscale",email:"Email",web:"Sito web"},
-  en:{company:"Controller",address:"Address",vat:"Tax ID",email:"Email",web:"Website"}
+  it:{company:"Titolare",address:"Indirizzo",vat:"Identificativo fiscale",email:"Email",web:"Sito web",phone:"Telefono"},
+  en:{company:"Controller",address:"Address",vat:"Tax ID",email:"Email",web:"Website",phone:"Phone"}
 };
 
 function esc(s){return String(s).replace(/[<>&]/g,function(c){return{'<':'&lt;','>':'&gt;','&':'&amp;'}[c];});}
@@ -290,6 +290,7 @@ function render(lang){
       '<div class="row"><span class="k">'+lb.vat+'</span><span>'+esc(CONTROLLER.vat)+'</span></div>' +
       '<div class="row"><span class="k">'+lb.email+'</span><span>'+emailHtml+'</span></div>' +
       webRow +
+      '<div class="row"><span class="k">'+lb.phone+'</span><span>'+esc(CONTROLLER.phone)+'</span></div>' +
     '</div>';
 
   var html = '<h1>'+esc(t.docTitle)+'</h1>' +
