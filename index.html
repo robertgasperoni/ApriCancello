@@ -122,11 +122,17 @@ var CONTROLLER = {
 var EFFECTIVE = { it:"27 ottobre 2026", en:"October 27, 2026" };
 var VERSION = "1.0";
 
+/* Guida utente (PDF) per lingua. Quando esisterà la guida inglese basta
+   cambiare il file di "en" (es. "guida_en.pdf"). */
+var GUIDE = { it:"guida_it.pdf", en:"guida_it.pdf" };
+
 var T = {
   it: {
     docTitle: "Privacy Policy e avvertenze d'uso",
     updated: "Ultimo aggiornamento",
     version: "Versione",
+    guideLead: "Guida utente completa dell'App:",
+    guideLink: "Apri la guida (PDF)",
     intro:
       "Questa pagina descrive come l'applicazione <strong>Apri Cancello</strong> (\"l'App\") tratta i dati inseriti dall'utente e quali avvertenze valgono per il suo uso. " +
       "Apri Cancello permette di aprire un cancello, una sbarra o un portone con un tocco: l'App <strong>telefona al numero del dispositivo di apertura</strong> scelto dall'utente e riaggancia dopo il tempo impostato. " +
@@ -194,6 +200,8 @@ var T = {
     docTitle: "Privacy Policy and usage notes",
     updated: "Last updated",
     version: "Version",
+    guideLead: "Complete user guide of the App:",
+    guideLink: "Open the guide (PDF, in Italian)",
     intro:
       "This page explains how the <strong>Apri Cancello</strong> application (\"the App\") handles the data you enter, and which usage notes apply. " +
       "Apri Cancello opens a gate, a barrier or a garage door with one tap: the App <strong>calls the phone number of the opening device</strong> you choose and hangs up after the time you set. " +
@@ -295,7 +303,8 @@ function render(lang){
 
   var html = '<h1>'+esc(t.docTitle)+'</h1>' +
     '<p class="meta">'+esc(t.updated)+': '+esc(EFFECTIVE[lang])+' &nbsp;&middot;&nbsp; '+esc(t.version)+' '+esc(VERSION)+'</p>' +
-    '<p>'+t.intro+'</p>';
+    '<p>'+t.intro+'</p>' +
+    '<div class="callout"><p>'+esc(t.guideLead)+' <a href="'+esc(GUIDE[lang])+'" target="_blank" rel="noopener">'+esc(t.guideLink)+'</a></p></div>';
   secs.forEach(function(s){
     html += '<h2><span class="num">'+s[0]+'.</span>'+esc(s[1])+'</h2>'+s[2];
   });
